@@ -25,7 +25,7 @@ async def send_message_safe(message):
 # ---- Fetch all USDT pairs from Binance ----
 def fetch_usdt_pairs():
     try:
-        resp = requests.get("https://api.binance.com/api/v3/exchangeInfo", timeout=10)
+        resp = requests.get("https://api.binance.us/api/v3/exchangeInfo", timeout=10)
         data = resp.json()
         usdt_pairs = [s['symbol'] for s in data['symbols'] if s['symbol'].endswith("USDT")]
         print(f"Fetched {len(usdt_pairs)} USDT pairs")
